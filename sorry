@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 120px;
+      background: linear-gradient(#ffe6ea, #fff);
+    }
+    .box {
+      display: none;
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2 id="error">❌ Invalid or Expired Link</h2>
+
+<div class="box" id="content">
+  <h1>Sorry 🥺❤️</h1>
+  <p>tu mere liye bohot special hai</p>
+  <p>please maan ja 💔➡️❤️</p>
+
+  <button onclick="playMusic()">Tap Here 💖</button>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const correctCode = "GF123LOVE";
+
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+
+  if (code === correctCode) {
+    document.getElementById("error").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  }
+
+  function playMusic() {
+    document.getElementById("bgMusic").play();
+  }
+</script>
+
+</body>
+</html>
